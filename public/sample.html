@@ -1,0 +1,129 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Todo Application</title>
+    </head>
+    <body>
+
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">C H E R U V U</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" style="">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarColor02">
+
+        </div>
+      </nav>
+
+      <div class="container"  ng-controller="mainController">
+        
+        <form name="farmerForm" style="margin-top:30px" novalidate>
+              <fieldset>
+                <legend>Farmer Registration</legend>
+
+
+
+
+                <div role="alert"><span class="error" ng-show="farmerForm.sl.$error.required">*Required</span>
+                <span class="error" ng-show="farmerForm.sl.$error.maxlength">Max: 3</span></div>
+                
+
+
+                <div class="form-group">
+                    <input type="number" required ng-maxlength="3"  required ng-model="farmerForm.sl" class="form-control" style="width: 150px"  placeholder="Sl">
+            </div>
+
+                
+          
+
+
+                <div role="alert">
+                    <span class="error" ng-show="farmerForm.name.$error.required">
+                      *Required</span>
+                    <span class="error" ng-show="farmerForm.name.$error.pattern">
+                      Alphabets only!</span>
+                </div>
+                <div class="form-group">
+                    <input ng-model="farmerForm.name"  ng-pattern="/^[a-zA-Z\s]*$/" required class="form-control" placeholder="Farmer Name">                            
+                </div>
+
+
+
+
+                <div role="alert">
+                  <span class="error" ng-show="farmerForm.age.$error.required">
+                    *Required</span>
+                  <span class="error" ng-show="farmerForm.age.$error.max">
+                    Age should be less that 100!</span>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="number" min="1" max="99" required ng-model="farmerForm.age" class="form-control" style="width: 150px"  placeholder="Age">
+            </div>
+
+
+
+
+
+        <div class="form-group"  class="form-control">
+                <select ng-model="farmerForm.mandal" class="custom-select">
+                  <option selected="">Select Mandal</option>
+                  <option value="1">Mandal 1</option>
+                  <option value="2">Mandal 2</option>
+                  <option value="3">Mandal 3</option>
+                </select>
+        </div>
+
+
+        <div class="form-group"  class="form-control">
+            <select ng-model="farmerForm.village" class="custom-select">
+              <option selected="">Select Village</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+            </select>
+    </div>
+
+                <button type="submit" ng-disabled="farmerForm.$invalid" ng-click="submitForm()" class="btn btn-primary">Submit</button>
+                
+
+            </form>
+
+
+        </div>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
