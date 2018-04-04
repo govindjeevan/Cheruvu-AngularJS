@@ -5,6 +5,7 @@ var mysql      = require('mysql');
 var bodyParser = require('body-parser');
 var path = require('path');
 var morgan = require('morgan');
+var port = process.env.port || 3000;
 
 
 
@@ -77,8 +78,8 @@ app.post('/data', function(req, res){
 });
 
 
-app.listen(3000, function(){
-    console.log("listening to 3000...");
+app.listen(port, function(){
+    console.log("listening to Port: "+ port);
 })
 
 //con.query("INSERT INTO customers (name, adrress) VALUES (?)", name, address, function (err, result) {
