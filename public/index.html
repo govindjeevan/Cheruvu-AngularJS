@@ -8,130 +8,128 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28//angular-route.min.js"></script>
     <script src="app.js"></script>
     <title>Todo Application</title>
     </head>
-    <body>
-
-
+    <body  ng-controller="mainController">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">C H E R U V U</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" style="">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarColor02">
-
-        </div>
-      </nav>
-
-      <div class="container"  ng-controller="mainController">
-        
-        <form name="farmerForm" ng-sumbit="submitForm(farmerForm.$valid)" style="margin-top:30px" novalidate>
-              <fieldset>
-                <legend>Farmer Registration</legend>
-                
-                <div role="alert">
-                        <span class="error" ng-show="farmerForm.sl.$error.required">
-                          *Required</span>
-                        <span class="error" ng-show="farmerForm.sl.$error.maxlength">
-                          Max: 3</span>
-                </div>
-                <div class="form-group">
-                        <input type="number" required min="0" ng-maxlength="3"  ng-model="farmer.sl" class="form-control" style="width: 150px" name="sl"  placeholder="Sl">
-                </div>
-
-                <div role="alert">
-                        <span class="error" ng-show="farmerForm.name.$error.required">
-                          *Required</span>
-                        <span class="error" ng-show="farmerForm.name.$error.pattern">
-                          Alphabets only!</span>
-                </div>
-                <div class="form-group">
-                    <input ng-model="farmer.name" ng-pattern="/^[a-zA-Z\s]*$/" required class="form-control" name="name" placeholder="Farmer Name">                            
-                </div>
-
- 
-                <div role="alert">
-                  <span class="error" ng-show="farmerForm.age.$error.required">
-                    *Required</span>
-                  <span class="error" ng-show="farmerForm.age.$error.max">
-                    Age should be less that 100!</span>
-                </div>
-
-                <div class="form-group">
-                        <input type="number" min="1" max="99" required ng-model="farmer.age" class="form-control" style="width: 150px" name="age"  placeholder="Age">
-                </div>
-
-
-
-                <div class="form-group"  class="form-control">
-                        <select ng-model="farmer.mandal" class="custom-select">
-                          <option value="">Select Mandal</option>
-                          <option value="1">Mandal 1</option>
-                          <option value="2">Mandal 2</option>
-                          <option value="3">Mandal 3</option>
-                        </select>
-                </div>
-
-
-                <div class="form-group"  class="form-control" ng-hide="farmer.mandal!=1">
-                        <select ng-model="farmer.village" class="custom-select">
-                          <option value="">Select Village</option>
-                          <option >A</option>
-                          <option >B</option>
-                          <option >C</option>
-                        </select>
-                </div>
-  
-
-
-                <div class="form-group"  class="form-control" ng-hide="farmer.mandal!=2">
-                        <select ng-model="farmer.village" class="custom-select">
-                          <option value="">Select Village</option>
-                          <option >D</option>
-                          <option >E</option>
-                          <option >F</option>
-                        </select>
-                </div>
-
-                <div class="form-group"  class="form-control" ng-hide="farmer.mandal!=3">
-                        <select ng-model="farmer.village" class="custom-select">
-                            <option value="">Select Village</option>                          
-                          <option >G</option>
-                          <option >H</option>
-                          <option >I</option>
-                        </select>
-                </div>
-
-                
-
-                <button type="submit" ng-disabled="farmerForm.$invalid" ng-click="submitForm(farmerForm.$valid)" class="btn btn-primary">Submit</button>
-                
-
-            </form>
-
-
-            <p>Completed: {{!!!farmerForm.$error.required}}</p>
-            <div>Valid Form: {{farmerForm.$valid}}</div>
-            <div>Valid name: {{farmerForm.name.$valid}}</div>
-            <div>Valid Age: {{farmerForm.age.$valid}}</div>
-            <div>Valid sl: {{farmerForm.sl.$valid}}</div>
+            <img class="navbar-brand" src="cheruvulogo2whitecolor.png"></img>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" style="">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarColor02">
+    
+            </div>
+          </nav>
+    
             
-        </div>
- 
+    
+          <div class="container"  ng-hide="!submitted" >
 
-
-
-
-
-
-
-
-
-
-
-
+          
+              <div style="margin: 30px" class="alert alert-success">
+                  <strong>Successfully submitted the form!</strong> 
+                </div>
+          </div>
+          
+    
+    
+    
+    
+          <div class="container" style="margin-top:100px" ng-hide="submitted" >
+            
+              <form name="farmerForm" ng-sumbit="submitForm(farmerForm.$valid)" style="margin-top:30px" novalidate>
+                    <fieldset>
+                      <legend><h1>Farmer Registration</h1></legend>
+                      
+                      <div role="alert">
+                              <span class="error" ng-show="farmerForm.sl.$error.required">
+                                *Required</span>
+                              <span class="error" ng-show="farmerForm.sl.$error.maxlength">
+                                Max: 3</span>
+                      </div>
+                      <div class="form-group">
+                              <input type="number" required min="0" ng-maxlength="3"  ng-model="farmer.sl" class="form-control" style="width: 150px" name="sl"  placeholder="Sl">
+                      </div>
+      
+                      <div role="alert">
+                              <span class="error" ng-show="farmerForm.name.$error.required">
+                                *Required</span>
+                              <span class="error" ng-show="farmerForm.name.$error.pattern">
+                                Alphabets only!</span>
+                      </div>
+                      <div class="form-group">
+                          <input ng-model="farmer.name" ng-pattern="/^[a-zA-Z\s]*$/" required class="form-control" name="name" placeholder="Farmer Name">                            
+                      </div>
+      
+       
+                      <div role="alert">
+                        <span class="error" ng-show="farmerForm.age.$error.required">
+                          *Required</span>
+                        <span class="error" ng-show="farmerForm.age.$error.max">
+                          Age should be less that 100!</span>
+                      </div>
+      
+                      <div class="form-group">
+                              <input type="number" min="1" max="99" required ng-model="farmer.age" class="form-control" style="width: 150px" name="age"  placeholder="Age">
+                      </div>
+      
+      
+      
+                      <div class="form-group"  class="form-control">
+                              <select ng-model="farmer.mandal" class="custom-select">
+                                <option value="">Select Mandal</option>
+                                <option value="1">Mandal 1</option>
+                                <option value="2">Mandal 2</option>
+                                <option value="3">Mandal 3</option>
+                              </select>
+                      </div>
+      
+      
+                      <div class="form-group"  class="form-control" ng-hide="farmer.mandal!=1">
+                              <select ng-model="farmer.village" class="custom-select">
+                                <option value="">Select Village</option>
+                                <option >A</option>
+                                <option >B</option>
+                                <option >C</option>
+                              </select>
+                      </div>
+        
+      
+      
+                      <div class="form-group"  class="form-control" ng-hide="farmer.mandal!=2">
+                              <select ng-model="farmer.village" class="custom-select">
+                                <option value="">Select Village</option>
+                                <option >D</option>
+                                <option >E</option>
+                                <option >F</option>
+                              </select>
+                      </div>
+      
+                      <div class="form-group"  class="form-control" ng-hide="farmer.mandal!=3">
+                              <select ng-model="farmer.village" class="custom-select">
+                                  <option value="">Select Village</option>                          
+                                <option >G</option>
+                                <option >H</option>
+                                <option >I</option>
+                              </select>
+                      </div>
+      
+                      
+      
+                      <button type="submit" ng-disabled="farmerForm.$invalid" ng-click="submitForm(farmerForm.$valid)" class="btn btn-primary">Submit</button>
+                      
+      
+                  </form>
+    
+                  
+              </div>
+       
+      
+      
+        
 
 
     </body>
